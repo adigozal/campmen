@@ -79,7 +79,7 @@ public/uploads
 .env.local
 .env.*.local
 *.env
-
+venv
 # API keys and secrets
 *.key
 *.pem
