@@ -80,6 +80,7 @@ public/uploads
 .env.*.local
 *.env
 venv
+.venv
 # API keys and secrets
 *.key
 *.pem
