@@ -1,0 +1,133 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+venv/
+*.egg-info/
+*.eggs/
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+target/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Logs
+*.log
+logs/
+log/
+
+# IDE/Editor config files
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+*.komodoproject
+
+# VS Code settings
+.vscode/
+
+# JetBrains IDEs (IntelliJ, PyCharm, etc.)
+.idea/
+
+# Eclipse
+.metadata/
+bin/
+target/
+
+# Docker
+docker-compose.override.yml
+Dockerfile
+.docker/
+
+# GitHub Files
+.github/
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# Composer (PHP)
+vendor/
+
+# Ruby (Rails)
+*.gem
+log/
+tmp/
+*.rbc
+.bundle/
+coverage/
+capybara-*.json
+public/system
+public/uploads
+
+# .env and configuration files
+.env
+.env.local
+.env.*.local
+*.env
+
+# API keys and secrets
+*.key
+*.pem
+*.crt
+
+# Secrets and sensitive data
+*.sqlite
+*.db
+*.log
+*.pid
+
+# Coverage reports
+coverage/
+*.lcov
+*.coveralls.yml
+
+# Package files
+*.tgz
+*.tar.gz
+*.zip
+
+# Temporary files
+*.swp
+*.bak
+*.tmp
+
+# Build artifacts
+dist/
+build/
+out/
+
+# Compiled source code
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# macOS Finder folder info
+.AppleDouble
+.LSOverride
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Other system-specific files
+*~
