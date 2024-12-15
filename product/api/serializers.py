@@ -11,7 +11,6 @@ class ProductCategorySerializer(serializers.ModelSerializer):
             'main_category',
             'main_cat',
             'cat_name',
-            'png'
         )
 
 class ProductSerializer(serializers.ModelSerializer):

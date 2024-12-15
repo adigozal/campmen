@@ -10,7 +10,7 @@ class OrderItemListAPIView(ListAPIView):
 
     def get_queryset(self):
         user = self.request.user
-        return OrderItem.objects.filter(order__customer=user)
+        return OrderItem.objects.filter(order__customer=user.id)
 
     def list(self, request, *args, **kwargs):
         queryset = self.get_queryset()

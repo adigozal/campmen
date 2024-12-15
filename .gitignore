@@ -11,7 +11,8 @@ __pycache__/
 venv/
 *.egg-info/
 *.eggs/
-
+venv/
+venv
 # Java
 *.class
 *.jar
