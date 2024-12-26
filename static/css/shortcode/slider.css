@@ -391,7 +391,7 @@
 .slider__full--screen.slider-height-inherit {
     align-items: center;
     display: flex;
-    height: inherit;
+    height: 800px;
 }
 .slider-height-inherit .slider__inner {
     padding: 184px 0;
