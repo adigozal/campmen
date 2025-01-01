@@ -16,6 +16,26 @@ services:
     networks:
       - postgres
     restart: unless-stopped
+    env_file:
+      - .env
+  web:
+    build: .
+    volumes:
+      - .:/app
+    ports:
+      - "8003:8003"
+    depends_on:
+      - postgres
+    command: sh -c "sleep 10 && python manage.py runserver 0.0.0.0:8003"  # Add a delay to wait for db
+    env_file:
+      - .env
+
+  nginx:
+    build: ./nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - web
 
 networks:
   postgres:

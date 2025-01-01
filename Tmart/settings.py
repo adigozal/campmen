@@ -28,6 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # Application definition
 
@@ -94,21 +95,38 @@ WSGI_APPLICATION = 'Tmart.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # }
 
+# Database
+# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+from django.utils.translation import gettext_lazy as _
+
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'Tmart_db',
-        'USER': 'Tmart_user',
-        'PASSWORD': 'Tmart_password',
+        'NAME': os.environ.get("POSTGRES_DB", "Tmart_db"),
+        'PASSWORD': os.environ.get("POSTGRES_PASSWORD", "Tmart_password"),
+        'USER': os.environ.get("POSTGRES_USER", "Tmart_user"),
         'HOST': 'localhost',
-        'PORT': '5433',
+        'PORT': 5433
+
     }
 }
+
+# DATABASES = {
+#     # 'default': {
+#     #     'ENGINE': 'django.db.backends.sqlite3',
+#     #     'NAME': BASE_DIR / 'db.sqlite3',
+#     # }
+
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'Tmart_db',
+#         'USER': 'Tmart_user',
+#         'PASSWORD': 'Tmart_password',
+#         'HOST': 'localhost',
+#         'PORT': '5433',
+#     }
+# }
 
 
 
@@ -168,8 +186,18 @@ MESSAGE_TAGS = {
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
+# STATIC_URL = 'static/'
+# STATICFILES_DIRS = [ BASE_DIR / 'static',]
+
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [ BASE_DIR / 'static',]
+if DEBUG:
+        STATICFILES_DIRS = [
+            os.path.join(BASE_DIR, 'static')
+       ]
+else:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # STATIC_ROOT = BASE_DIR / 'static'
 
 MEDIA_URL = '/media/'
