@@ -12,7 +12,7 @@ services:
     volumes:
        - postgres:/data/postgres
     ports:
-      - "5433:5432"
+      - "5432:5432"
     networks:
       - postgres
     restart: unless-stopped
@@ -26,7 +26,9 @@ services:
       - "8003:8003"
     depends_on:
       - postgres
-    command: sh -c "sleep 10 && python manage.py runserver 0.0.0.0:8003"  # Add a delay to wait for db
+    networks:
+      - postgres
+  # Add a delay to wait for db
     env_file:
       - .env
 
@@ -44,4 +46,7 @@ networks:
 volumes:
     postgres:
     pgadmin:
+
+
+
 

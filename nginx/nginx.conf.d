@@ -1,5 +1,5 @@
 upstream hello_django {
-    server web:8003;
+    server localhost;
 }
 
 server {

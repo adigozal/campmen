@@ -106,8 +106,8 @@ DATABASES = {
         'NAME': os.environ.get("POSTGRES_DB", "Tmart_db"),
         'PASSWORD': os.environ.get("POSTGRES_PASSWORD", "Tmart_password"),
         'USER': os.environ.get("POSTGRES_USER", "Tmart_user"),
-        'HOST': 'localhost',
-        'PORT': 5433
+        'HOST': 'postgres',
+        'PORT': 5432
 
     }
 }
