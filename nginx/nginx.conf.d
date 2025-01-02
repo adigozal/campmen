@@ -4,7 +4,7 @@ upstream hello_django {
 
 server {
 
-    listen 80;
+    listen 81;
 
     location / {
         proxy_pass http://hello_django;
