@@ -641,7 +641,7 @@
 
 @media (max-width: 767px) {
     .container {
-        width: 300px
+        width: 96%
     }
     /*------------------
  Padding Top
@@ -1125,7 +1125,7 @@
         padding-top: 55px;
     }
     .logo img {
-        max-width: inherit;
+        max-width: 200px;
     }
     .menu-extra {
         margin-right: 40px;
@@ -1407,7 +1407,7 @@
 
 @media only screen and (min-width: 480px) and (max-width: 767px) {
     .container {
-        width: 450px
+        width: 96%
     }
     .blog__post__time {
         margin-bottom: 77px;
