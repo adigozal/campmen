@@ -10,7 +10,7 @@ RUN pip install --no-cache-dir --upgrade -r requirements.txt
 COPY . .
 
 # Portu expose edin
-EXPOSE 8003
+EXPOSE 8000
 
 # Django sunucusunu başlatın
 CMD [ "python3", "manage.py", "runserver", "0.0.0.0:8000" ]

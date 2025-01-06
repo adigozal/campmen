@@ -393,6 +393,16 @@
     display: flex;
     height: 800px;
 }
+@media(max-width:767px){
+  .slider__full--screen.slider-height-inherit{
+    height: 300px !important;
+  }
+}
+@media(min-width:768px) and (max-width:1023px){
+  .slider__full--screen.slider-height-inherit{
+    height: 500px !important;
+  }
+}
 .slider-height-inherit .slider__inner {
     padding: 184px 0;
 }
