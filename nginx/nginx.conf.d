@@ -1,31 +1,23 @@
-server {
-    listen 80;
-    server_name www.campmen.az;
-
-    # Redirect HTTP to HTTPS
-    return 301 https://$host$request_uri;
+upstream hello_django {
+    server web:8000;
 }
 
 server {
-    listen 443 ssl;
-    server_name www.campmen.az;
 
-    ssl_certificate /etc/nginx/ssl/fullchain.pem;  # SSL sertifikası
-    ssl_certificate_key /etc/nginx/ssl/privkey.pem;  # SSL özel anahtarı
+    listen 80;
 
     location / {
-        proxy_pass http://web:8000;  # Django'nun konteynerine yönlendirme
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
+        proxy_pass http://hello_django;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header Host $host;
+        proxy_redirect off;
     }
-
+        
     location /static/ {
         alias /code/static/;
     }
-
     location /media/ {
         alias /code/media/;
     }
+
 }
