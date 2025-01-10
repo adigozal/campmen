@@ -21,6 +21,12 @@ services:
     build: .
     volumes:
       - .:/code
+    environment:
+      - VIRTUAL_HOST=2.56.109.186, campmen.az, www.campmen.az
+      - VIRTUAL_PORT=8000
+      - TIMEOUT=300
+      - HTTP_PORT=8000
+      - STATS_PORT=8001
     ports:
       - "8000:8000"
     depends_on:
