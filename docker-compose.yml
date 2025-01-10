@@ -13,8 +13,7 @@ services:
        - postgres:/data/postgres
     ports:
       - "5432:5432"
-    networks:
-      - postgres
+   
     restart: unless-stopped
     env_file:
       - .env
@@ -26,9 +25,8 @@ services:
       - "8000:8000"
     depends_on:
       - postgres
-    networks:
-      - postgres
-  # Add a delay to wait for db
+   
+ 
     env_file:
       - .env
 
