@@ -34,9 +34,9 @@ services:
 
  
 networks:
-    default:
+  default:
      external:
-      name: nginx-proxy
+       name: nginx-proxy
 
 
 
