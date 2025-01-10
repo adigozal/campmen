@@ -36,6 +36,7 @@ networks:
      external:
        name: nginx-proxy
 
-
+volumes:
+  postgres:
 
 
