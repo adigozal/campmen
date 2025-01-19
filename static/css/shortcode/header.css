@@ -814,7 +814,7 @@ h4.offset__title {
 }
 .off__contact .logo {
   margin-bottom: 18px;
-  text-align: center;
+  /* text-align: center; */
 }
 
 .sidebar__thumd {

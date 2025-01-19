@@ -469,9 +469,9 @@
     .our-important-note {
         margin-top: 30px;
     }
-    .menu-extra {
+    /* .menu-extra {
         margin-right: 55px;
-    }
+    } */
     .sticky__header.scroll-header .menu-extra {
         height: 51px;
         line-height: 69px;
@@ -638,11 +638,71 @@
     }
 }
 /* small mobile :320px. */
-
+.container{
+    max-width: 90% !important;
+}
+.menu-button {
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .offcanvas-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 250px;
+    height: 100%;
+    background-color: #fff;
+    color: #000;
+    padding: 20px;
+    transition: left 0.3s ease;
+    z-index: 1000;
+  }
+  
+  .offcanvas-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .close-button {
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: #000;
+    cursor: pointer;
+  }
+  
+  .menu-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .menu-list li {
+    margin: 15px 0;
+  }
+  
+  .menu-list a {
+    color: #000;
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
+  
+  .menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 999;
+  }
+  
 @media (max-width: 767px) {
-    .container {
-        width: 300px
-    }
+   
     /*------------------
  Padding Top
 -----------------*/
@@ -1131,9 +1191,9 @@
             height: 20px !important;
             max-width: inherit !important;
         }
-    .menu-extra {
+    /* .menu-extra {
         margin-right: 40px;
-    }
+    } */
     .sticky__header.scroll-header {
         position: inherit;
     }
@@ -1410,9 +1470,7 @@
 /* Large Mobile :480px. */
 
 @media only screen and (min-width: 480px) and (max-width: 767px) {
-    .container {
-        width: 450px
-    }
+ 
     .blog__post__time {
         margin-bottom: 77px;
     }
@@ -1450,5 +1508,10 @@
     }
     .buttons-cart a {
         margin-top: 0px;
+    }
+}
+@media(min-width:992px){
+    #menuButton{
+        display: none !important;
     }
 }

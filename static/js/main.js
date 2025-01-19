@@ -38,6 +38,25 @@
 /*--------------------------------
 [ End table content ]
 -----------------------------------*/
+const menuButton = document.getElementById('menuButton');
+const offcanvasMenu = document.getElementById('offcanvasMenu');
+const closeMenuButton = document.getElementById('closeMenuButton');
+const overlay = document.getElementById('overlay');
+
+menuButton.addEventListener('click', () => {
+  offcanvasMenu.style.left = '0';
+  overlay.style.display = 'block';
+});
+
+closeMenuButton.addEventListener('click', () => {
+  offcanvasMenu.style.left = '-100%';
+  overlay.style.display = 'none';
+});
+
+overlay.addEventListener('click', () => {
+  offcanvasMenu.style.left = '-100%';
+  overlay.style.display = 'none';
+});
 
 
 (function($) {

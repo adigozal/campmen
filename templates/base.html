@@ -98,7 +98,7 @@
             <div id="sticky-header-with-topbar" class="mainmenu__area sticky__header">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-2 col-lg-2 col-sm-3 col-xs-3">
+                        <div class="col-md-2 col-lg-2 col-sm-3 col-xs-6">
                             <div class="logo">
                                 <a href="{% url 'home' %}">
                                     <img src="{% static 'images/logo/logo.png' %}" alt="logo">
@@ -106,7 +106,7 @@
                             </div>
                         </div>
                         <!-- Start MAinmenu Ares -->
-                        <div class="col-md-8 col-lg-8 col-sm-6 col-xs-6">
+                        <div class="col-md-8 col-lg-8 col-sm-6 hidden-xs">
                             <nav class="mainmenu__nav hidden-xs hidden-sm">
                                 <ul class="main__menu">
                                     <li class="drop"><a href="{% url 'home' %}">{% trans 'Home' %}</a></li>
@@ -125,17 +125,28 @@
                             </nav>                       
                         </div>
                         <!-- End MAinmenu Ares -->
-                        <div class="col-md-2 col-sm-4 col-xs-3">  
+                        <div class="col-md-2 col-sm-4 col-xs-6">  
                             <ul class="menu-extra">
                                 <li  class="search search__open hidden-xs"><span class="ti-search"></span></li>
-                                {% if user.is_authenticated %}
-                                <li><a href=""><span>{{request.user.username}}</span></a></li>
-                                <li><a href="{% url 'logout' %}"><span>{% trans 'Logout' %}</span></a></li>
-                                {% else %}
-                                <li><a href="{% url 'register' %}"><span class="ti-user"></span></a></li>
-                                {% endif %}
+                                <li class="dropdown">
+                                    {% if user.is_authenticated %}
+                                      <a href="#" class="dropdown-toggle " style="display: flex;align-items: center;" data-toggle="dropdown" aria-expanded="false">
+                                        <span class="ti-user"></span> <span class="caret"></span>
+                                      </a>
+                                      <ul class="dropdown-menu" style="text-align: left;">
+                                        <li><a href="#" style="padding: 5px 0 0 15px !important;"><span style="display: flex; align-items: center; gap: 5px;font-size: 14px;"><i class="fa fa-user" style="font-size: 16px;"></i>{{ request.user.username }}</span></a></li>
+                                        <li><a href="{% url 'logout' %}" style="padding: 5px 0 !important;"><span style="display: flex; align-items: center; gap: 5px;font-size: 14px;"><i class="fa fa-sign-out" style="font-size: 16px;"></i> {% trans 'Logout' %}</span></a></li>
+                                      </ul>
+                                    {% else %}
+                                      <a href="{% url 'register' %}"><span class="ti-user"></span></a>
+                                    {% endif %}
+                                  </li>
+                                  
                                 <li class="cart__menu"><span  id="cartItems"  class="ti-shopping-cart" ></span></li>
                                 <li class="toggle__menu hidden-xs hidden-sm"><span class="ti-menu"></span></li>
+                                <button id="menuButton" class="menu-button">
+                                    <span class="ti-menu"></span> <!-- Use your preferred icon or text -->
+                                  </button>
                             </ul>
                         </div>
                     </div>
@@ -177,7 +188,7 @@
                     <div class="off__contact">
                         <div class="logo">
                             <a href="index.html">
-                                <img src="{% static 'images/logo/logo.png' %}" alt="logo">
+                                <img style="width: 200px; height: 50px;" src="{% static 'images/logo/logo.png' %}" alt="logo">
                             </a>
                         </div>
                         {% comment %} <p>{% trans 'Lorem ipsum dolor sit amet consectetu adipisicing elit sed do eiusmod tempor incididunt ut labore.' %}</p> {% endcomment %}
@@ -187,7 +198,7 @@
                         <li><a href="#"><img src="{% static 'images/sidebar-img/carr1.webp' %}" alt="sidebar images"></a></li>
                         <li><a href="#"><img src="{% static 'images/sidebar-img/ca.webp' %}" alt="sidebar images"></a></li>
                     </ul> {% endcomment %}
-                    <div class="offset__widget">
+                    <div class="offset__widget" style="padding-top: 50px;">
                         <div class="offset__single">
                             <h4 class="offset__title">{% trans 'Language' %}</h4>
                             <ul>
@@ -277,6 +288,31 @@
         </div>
         {% block content %}
         {% endblock %}
+        <div id="offcanvasMenu" class="offcanvas-menu">
+            <div class="offcanvas-header" style="display: flex; align-items: center;justify-content: space-between;">
+                <div class="ft__logo" style="margin-bottom: 0 !important;">
+                    <a href="index.html">
+                        <img src="{% static 'images/logo/logo.png' %}" alt="footer logo">
+                    </a>
+                </div>
+              <button id="closeMenuButton" class="close-button" style="-webkit-text-stroke: 1px white; "><i class="fa fa-close" style="font-size: 20px;"></i></button>
+            </div>
+            <ul class="menu-list" style="padding-top: 20px;">
+                <li class="drop"><a href="{% url 'home' %}">{% trans 'Home' %}</a></li>
+                <li class="drop"><a href="{% url 'blog_list' %}">{% trans 'Blog' %}</a>
+                </li>
+                <li class="drop"><a href="{% url 'shop' %}">{% trans 'Shop' %}</a>
+                </li>
+                <li class="drop"><a href="#">{% trans 'About us' %}</a>
+                    <ul class="dropdown">
+                        <li><a href="{% url 'about' %}">{% trans 'Our company' %}</a></li>                                           
+                        <li><a href="{% url 'team' %}">{% trans 'our team' %}</a></li>
+                    </ul>
+                </li>
+                <li><a href="{% url 'contact' %}">{% trans 'contact' %}</a></li>
+            </ul>
+          </div>
+          <div id="overlay" class="menu-overlay"></div>
         <footer class="htc__foooter__area gray-bg" id="footer">
             <div class="container">
                 <div class="row">
