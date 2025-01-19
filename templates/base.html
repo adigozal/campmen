@@ -180,13 +180,13 @@
                                 <img src="{% static 'images/logo/logo.png' %}" alt="logo">
                             </a>
                         </div>
-                        <p>{% trans 'Lorem ipsum dolor sit amet consectetu adipisicing elit sed do eiusmod tempor incididunt ut labore.' %}</p>
+                        {% comment %} <p>{% trans 'Lorem ipsum dolor sit amet consectetu adipisicing elit sed do eiusmod tempor incididunt ut labore.' %}</p> {% endcomment %}
                     </div>
-                    <ul class="sidebar__thumd">
+                    {% comment %} <ul class="sidebar__thumd">
                         <li><a href="#"><img src="{% static 'images/sidebar-img/camping.jpeg' %}" alt="sidebar images"></a></li>
                         <li><a href="#"><img src="{% static 'images/sidebar-img/carr1.webp' %}" alt="sidebar images"></a></li>
                         <li><a href="#"><img src="{% static 'images/sidebar-img/ca.webp' %}" alt="sidebar images"></a></li>
-                    </ul>
+                    </ul> {% endcomment %}
                     <div class="offset__widget">
                         <div class="offset__single">
                             <h4 class="offset__title">{% trans 'Language' %}</h4>
@@ -212,22 +212,26 @@
                             <ul>
                                 <li><a href="#">{% trans 'USD : Dollar' %}</a></li>
                                 <li><a href="#">{% trans 'EUR : Euro' %} </a></li>
-                                <li><a href="#">{% trans 'POU : Pound' %}</a></li>
+                                <li><a href="#">{% trans 'AZN : Manat' %}</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="offset__sosial__share">
                         <h4 class="offset__title">{% trans 'Follow Us On Social' %}</h4>
                         <ul class="off__soaial__link">
-                            <li><a class="bg--twitter" href="#"  title="Twitter"><i class="zmdi zmdi-twitter"></i></a></li>
+                            {% comment %}
+                                <li><a class="bg--twitter" href="#"  title="Twitter"><i class="zmdi zmdi-twitter"></i></a></li>
+                            {% endcomment %}
                             
-                            <li><a class="bg--instagram" href="#" title="Instagram"><i class="zmdi zmdi-instagram"></i></a></li>
+                            <li><a class="bg--instagram" href="https://www.instagram.com/campmen.az/?hl=en" title="Instagram"><i class="zmdi zmdi-instagram"></i></a></li>
 
                             <li><a class="bg--facebook" href="#" title="Facebook"><i class="zmdi zmdi-facebook"></i></a></li>
 
-                            <li><a class="bg--googleplus" href="#" title="Google Plus"><i class="zmdi zmdi-google-plus"></i></a></li>
-
-                            <li><a class="bg--google" href="#" title="Google"><i class="zmdi zmdi-google"></i></a></li>
+                            {% comment %}
+                                <li><a class="bg--googleplus" href="#" title="Google Plus"><i class="zmdi zmdi-google-plus"></i></a></li>
+    
+                                <li><a class="bg--google" href="#" title="Google"><i class="zmdi zmdi-google"></i></a></li>
+                            {% endcomment %}
                         </ul>
                     </div>
                 </div>

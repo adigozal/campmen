@@ -1,7 +1,5 @@
 FROM python:3.10.12
 
-# Ensure that Python outputs everything that's printed inside
-# the application rather than buffering it.
 ENV PYTHONUNBUFFERED 1
 ENV APP_ROOT /code
 ENV DEBUG False
