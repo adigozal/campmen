@@ -7,6 +7,7 @@ from ckeditor_uploader.fields import RichTextUploadingField
 from accounts.models import User
 
 
+
 class BlogCategory(models.Model):
     category_name = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200)

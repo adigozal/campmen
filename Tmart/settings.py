@@ -100,33 +100,33 @@ WSGI_APPLICATION = 'Tmart.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 from django.utils.translation import gettext_lazy as _
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': os.environ.get("POSTGRES_DB", "Tmart_db"),
-#         'PASSWORD': os.environ.get("POSTGRES_PASSWORD", "Tmart_password"),
-#         'USER': os.environ.get("POSTGRES_USER", "Tmart_user"),
-#         'HOST': 'postgres',
-#         'PORT': 5432
-
-#     }
-# }
-
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # }
-
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'Tmart_db',
-        'USER': 'Tmart_user',
-        'PASSWORD': 'Tmart_password',
-        'HOST': 'localhost',
-        'PORT': '5433',
+        'NAME': os.environ.get("POSTGRES_DB", "Tmart_db"),
+        'PASSWORD': os.environ.get("POSTGRES_PASSWORD", "Tmart_password"),
+        'USER': os.environ.get("POSTGRES_USER", "Tmart_user"),
+        'HOST': 'postgres',
+        'PORT': 5432
+
     }
 }
+
+# DATABASES = {
+#     # 'default': {
+#     #     'ENGINE': 'django.db.backends.sqlite3',
+#     #     'NAME': BASE_DIR / 'db.sqlite3',
+#     # }
+
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'Tmart_db',
+#         'USER': 'Tmart_user',
+#         'PASSWORD': 'Tmart_password',
+#         'HOST': 'localhost',
+#         'PORT': '5433',
+#     }
+# }
 
 
 
