@@ -1,46 +1,50 @@
-version: '3'
+version: '3.9'
 
 services:
   postgres:
     container_name: Tmart_postgres_container
-    image: postgres
-    environment:
-      POSTGRES_USER: Tmart_user
-      POSTGRES_PASSWORD: Tmart_password
-      POSTGRES_DB: Tmart_db
-      PGDATA: /data/postgres
-    volumes:
-       - postgres:/data/postgres
-    ports:
-      - "5432:5432"
-   
+    image: postgres:15
     restart: unless-stopped
     env_file:
       - .env
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+      PGDATA: ${PGDATA}
+    volumes:
+      - postgres:/data/postgres
+    ports:
+      - "5432:5432"
+
   web:
     build: .
-    volumes:
-      - .:/code
-    environment:
-      - VIRTUAL_HOST=2.56.109.186, campmen.az, www.campmen.az
-      - VIRTUAL_PORT=8000
-      - TIMEOUT=300
-      - HTTP_PORT=8000
-      - STATS_PORT=8001
-    ports:
-      - "8000:8000"
-    depends_on:
-      - postgres
+    container_name: campmen-web
     env_file:
       - .env
+    environment:
+      DJANGO_SETTINGS_MODULE: Tmart.settings
+    volumes:
+      - .:/code
+    depends_on:
+      - postgres
+    ports:
+      - "8000:8000"
 
- 
-networks:
-  default:
-     external:
-       name: nginx-proxy
+  nginx:
+    image: nginx:latest
+    container_name: campmen-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./static:/code/static
+      - ./media:/code/media
+    depends_on:
+      - web
+    networks:
+      - default
 
 volumes:
   postgres:
-
-

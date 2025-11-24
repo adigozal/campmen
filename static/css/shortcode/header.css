@@ -400,6 +400,7 @@
   align-items: center;
   display: flex;
   height: 134px;
+  width: 134px;
 }
 .header--3 .main__menu > li > a {
   font-size: 15px;
@@ -429,6 +430,13 @@
 .header--3 .sticky__header.scroll-header .menu-extra {
   height: 70px;
 }
+.header--3 .sticky__header.scroll-header .logo{
+height:70px;
+width:70px;
+}
+.ft__logo{
+width:134px;
+height:134px}
 
 /*---------------------------
   Header Stayle  4
